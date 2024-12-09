@@ -36,3 +36,36 @@ fig4 = go.Figure(data = [
 
 fig4.update_layout(title="Most Affected States in USA", height=600)
 fig4.write_html("Fig4.html", auto_open=True)
+
+topStatesBrazil = data["Country"] == "Brazil"
+topStatesBrazil = data[topStatesBrazil].nlargest(5, "Confirmed")
+
+fig5 = go.Figure(data = [
+    go.Bar(name="Confirmed Cases", x=topStatesBrazil["Confirmed"], y=topStatesBrazil["Confirmed"], orientation='h'),
+    go.Bar(name="Death Cases", x=topStatesBrazil["Deaths"], y=topStatesBrazil["State"], orientation='h')
+])
+
+fig5.update_layout(title="Most Affected States in Brazil", height=600)
+fig5.write_html("Fig5.html", auto_open=True)
+
+topStatesRussia = data["Country"] == "Russia"
+topStatesRussia = data[topStatesRussia].nlargest(5, "Confirmed")
+
+fig6 = go.Figure(data = [
+    go.Bar(name="Confirmed Cases", x=topStatesRussia["Confirmed"], y=topStatesRussia["Confirmed"], orientation='h'),
+    go.Bar(name="Death Cases", x=topStatesRussia["Deaths"], y=topStatesRussia["State"], orientation='h')
+])
+
+fig6.update_layout(title="Most Affected States in Russia", height=600)
+fig6.write_html("Fig6.html", auto_open=True)
+
+topStatesIndia = data["Country"] == "India"
+topStatesIndia = data[topStatesIndia].nlargest(5, "Confirmed")
+
+fig7 = go.Figure(data = [
+    go.Bar(name="Confirmed Cases", x=topStatesIndia["Confirmed"], y=topStatesIndia["Confirmed"], orientation='h'),
+    go.Bar(name="Death Cases", x=topStatesIndia["Deaths"], y=topStatesIndia["State"], orientation='h')
+])
+
+fig7.update_layout(title="Most Affected States in India", height=600)
+fig7.write_html("Fig7.html", auto_open=True)
